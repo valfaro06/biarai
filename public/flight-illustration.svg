@@ -1,0 +1,17 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f3f6fb"/>
+  <!-- runway -->
+  <rect x="100" y="580" width="1000" height="12" fill="#0b3d91" opacity="0.25"/>
+  <!-- takeoff curve -->
+  <path d="M120 590 C 280 560, 420 520, 560 460 C 680 410, 820 330, 1040 260" stroke="#0b3d91" stroke-width="6" fill="none"/>
+  <!-- landing curve -->
+  <path d="M1040 260 C 900 320, 760 380, 620 430 C 460 490, 320 540, 160 570" stroke="#b91c1c" stroke-width="4" stroke-dasharray="10 10" fill="none" opacity="0.7"/>
+  <!-- plane icon -->
+  <g transform="translate(560,460)">
+    <path d="M0 -12 L36 0 L0 12 L8 0 Z" fill="#0b3d91"/>
+    <rect x="-10" y="-3" width="20" height="6" fill="#0b3d91" opacity="0.7"/>
+  </g>
+  <text x="120" y="640" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#0b3d91">Despegue</text>
+  <text x="980" y="240" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#b91c1c">Aterrizaje</text>
+</svg>
+
