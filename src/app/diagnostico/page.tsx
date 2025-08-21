@@ -40,8 +40,8 @@ export default function DiagnosticoPage() {
         <button disabled={status === "sending"} className="inline-flex items-center rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 disabled:opacity-50">
           {status === "sending" ? "Enviando…" : "Enviar"}
         </button>
-        {status === "ok" && <p className="text-green-600">Gracias, te escribimos con el resultado.</p>}
-        {status === "error" && <p className="text-red-600">Hubo un error. Intenta de nuevo.</p>}
+        {status === "ok" && <p className="text-sky-700">Gracias, te escribimos con el resultado.</p>}
+        {status === "error" && <p className="text-indigo-700">Hubo un error. Intenta de nuevo.</p>}
       </form>
     </section>
   );

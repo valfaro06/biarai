@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 mt-24">
+    <footer className="bg-gray-50 border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid gap-8 md:grid-cols-4 text-sm">
           <div className="space-y-4">
@@ -12,9 +12,9 @@ export default function Footer() {
               Estrategia, datos e IA para acelerar crecimiento, eficiencia y resiliencia en Pymes.
             </p>
             <div className="flex gap-3">
-              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">Estrategia</span>
-              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">Datos</span>
-              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">IA</span>
+              <span className="px-2 py-1 bg-sky-100 text-sky-700 text-xs rounded-full font-medium">Estrategia</span>
+              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">Datos</span>
+              <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full font-medium">IA</span>
             </div>
           </div>
           

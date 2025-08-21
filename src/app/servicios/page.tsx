@@ -1,50 +1,186 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function ServiciosPage() {
+  const [flippedCards, setFlippedCards] = useState<Set<string>>(new Set());
+
+  const toggleCard = (cardName: string) => {
+    const newFlipped = new Set(flippedCards);
+    if (newFlipped.has(cardName)) {
+      newFlipped.delete(cardName);
+    } else {
+      newFlipped.add(cardName);
+    }
+    setFlippedCards(newFlipped);
+  };
+
   const services = [
     {
-      title: "Inversiones · Deal Advisory",
+      name: "Deal Advisory",
+      category: "Inversiones",
+      description: "Servicios especializados en M&A, valuaciones, due diligence y estructuración de transacciones para maximizar el valor de tu inversión.",
+      backgroundSrc: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop&crop=center",
       href: "/servicios/deal-advisory",
-      bullets: [
-        "Estrategia de inversiones, diseño de portafolio",
-        "Teaser, cuaderno de venta, NDA/LoI/MoU, contratos",
-        "Valuación (DFC, múltiplos), estructuración financiera, due diligence",
-      ],
+      details: {
+        services: ["M&A y fusiones", "Valuaciones DCF", "Due diligence"],
+        impact: ["$2B+ en transacciones", "15+ deals cerrados", "95% tasa de éxito"],
+        clients: ["PE Funds", "Family Offices", "Corporativos"]
+      }
     },
     {
-      title: "Desarrollo de Nuevos Mercados",
+      name: "Nuevos Mercados",
+      category: "Expansión",
+      description: "Acompañamiento integral para expansión geográfica con enfoque regulatorio especializado en el mercado mexicano.",
+      backgroundSrc: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=600&fit=crop&crop=center",
       href: "/servicios/mercados",
-      bullets: [
-        "Estudios de mercado, precios, competidores y proveedores",
-        "Acompañamiento regulatorio (SAT, IMSS, PLD, CRE, CNH, Cofepris, ASEA)",
-        "Plan de negocio, alianzas y creación de filiales",
-      ],
+      details: {
+        services: ["Estudios de mercado", "Setup regulatorio", "Filiales mexicanas"],
+        impact: ["20+ empresas internacionales", "90 días promedio", "100% compliance"],
+        clients: ["Multinacionales", "Scale-ups", "Corporativos EU/US"]
+      }
     },
     {
-      title: "Mejoras de Operaciones y TI",
+      name: "Operaciones y TI",
+      category: "Mejoras",
+      description: "Optimización operacional y transformación tecnológica para mejorar eficiencia, compliance y competitividad.",
+      backgroundSrc: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&crop=center",
       href: "/servicios/operaciones-ti",
-      bullets: [
-        "Excelencia operativa, compliance y PMO",
-        "Plan de sistemas, implantaciones, integraciones y cloud",
-        "Interim management, recruiting, outsourcing y gestoría",
-      ],
+      details: {
+        services: ["Excelencia operativa", "Transformación digital", "Interim management"],
+        impact: ["15% reducción costos", "40% mejora productividad", "Fortune 500 experience"],
+        clients: ["Manufacturers", "Tech Companies", "Service Providers"]
+      }
     },
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-10">Servicios</h1>
-      <div className="grid gap-6 md:grid-cols-2">
-        {services.map((s) => (
-          <Link key={s.title} href={s.href} className="rounded-xl border border-border p-6 bg-muted hover:shadow-sm transition-shadow">
-            <h2 className="text-xl font-medium mb-3">{s.title}</h2>
-            <ul className="text-foreground/70 space-y-2 list-disc pl-5">
-              {s.bullets.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
-          </Link>
-        ))}
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
+          <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Servicios</span>
+        </h1>
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-5 sm:leading-relaxed max-w-3xl mx-auto opacity-90">
+          Aplicamos metodologías de grandes consultoras adaptadas a la realidad de Pymes mexicanas
+        </p>
+      </div>
+      <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => {
+          const isFlipped = flippedCards.has(service.name);
+          return (
+            <div 
+              key={service.name} 
+              className="relative min-h-[450px] sm:min-h-[500px] md:min-h-[550px] cursor-pointer perspective-1000"
+              onClick={() => toggleCard(service.name)}
+            >
+              <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+                {/* Front Side */}
+                <div className="absolute inset-0 w-full h-full backface-hidden">
+                  <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-full group">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={service.backgroundSrc}
+                        alt={`${service.name} service background`}
+                        className="w-full h-full object-cover object-center opacity-15 group-hover:opacity-25 transition-opacity duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-end">
+                      <div className="text-center space-y-3 sm:space-y-4">
+                        <div>
+                          <div className="text-xs sm:text-sm text-brand-dark font-semibold mb-2">{service.category}</div>
+                          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                            {service.name}
+                          </h3>
+                          <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-4 rounded-full"></div>
+                          <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-sm mx-auto">
+                            {service.description}
+                          </p>
+                          <div className="mt-6 space-y-2">
+                            <Link 
+                              href={service.href}
+                              className="inline-block bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light text-white px-4 py-2 rounded-lg text-sm font-semibold hover:shadow-lg transition-all duration-300"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              Explora el Proyecto
+                            </Link>
+                            <div className="text-xs text-brand-medium font-semibold">
+                              Haz clic en la tarjeta para ver más detalles
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Back Side */}
+                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+                  <div className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light rounded-2xl border border-gray-200 overflow-hidden h-full text-white">
+                    <div className="p-6 sm:p-8 md:p-10 h-full flex flex-col">
+                      <div className="text-center mb-6">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                          {service.name}
+                        </h3>
+                        <div className="w-16 h-1 bg-white mx-auto rounded-full"></div>
+                      </div>
+                      
+                      <div className="flex-1 space-y-5 text-sm sm:text-base">
+                        <div>
+                          <h4 className="font-bold mb-3 text-lg">Servicios clave:</h4>
+                          <ul className="space-y-2">
+                            {service.details.services.map((item, idx) => (
+                              <li key={idx} className="text-white/90 font-medium">• {item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-bold mb-3 text-lg">Resultados:</h4>
+                          <ul className="space-y-2">
+                            {service.details.impact.map((item, idx) => (
+                              <li key={idx} className="text-white/90 font-medium">• {item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-bold mb-3 text-lg">Clientes típicos:</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {service.details.clients.map((item, idx) => (
+                              <span key={idx} className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="text-center mt-4">
+                        <div onClick={(e) => e.stopPropagation()}>
+                          <Link 
+                            href={service.href}
+                            className="inline-block bg-white/20 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors mb-2"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            Explora el Proyecto
+                          </Link>
+                        </div>
+                        <div className="text-xs cursor-pointer hover:text-white/80" onClick={(e) => { e.stopPropagation(); toggleCard(service.name); }}>
+                          Haz clic para volver
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

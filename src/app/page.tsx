@@ -1,163 +1,71 @@
+'use client';
+
 import Link from "next/link";
-import type { Metadata } from "next";
+import GlobeWrapper from "@/components/GlobeWrapper";
+import ScrollingLogos from "@/components/ScrollingLogos";
+import StructuredData from "@/components/StructuredData";
+import { ExpandableCards } from "@/components/ExpandableCards";
+import { trackNavigation, trackContactEvent } from "@/lib/analytics";
+import { useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: "Inicio - Consultoría Estratégica para Pymes",
-  description: "Biarai aplica metodologías de grandes consultoras a la realidad de Pymes mexicanas. Deal Advisory, expansión a nuevos mercados y transformación operacional.",
-  openGraph: {
-    title: "Biarai - De Ideas a Resultados Reales para Pymes en México",
-    description: "Consultoría estratégica especializada en Pymes. Deal Advisory, Nuevos Mercados, Operaciones y TI.",
-  },
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Biarai",
-  "description": "Consultoría estratégica para Pymes en México",
-  "url": "https://www.biarai.com",
-  "logo": "https://www.biarai.com/logo.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+52-000-000-0000",
-    "contactType": "customer service",
-    "availableLanguage": ["Spanish"]
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "MX"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/biarai"
-  ]
-};
+// Metadata moved to layout.tsx since this is now a client component
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <StructuredData type="organization" />
+      <StructuredData type="website" />
       <main>
-        <section className="max-w-7xl mx-auto px-4 py-16" aria-labelledby="hero-heading">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Contenido principal */}
-            <article className="space-y-8">
+        <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-tl from-white via-brand-pale to-brand-light" aria-labelledby="hero-heading">
+          {/* Globe Background */}
+          <div className="absolute inset-0 z-0">
+            <GlobeWrapper />
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 lg:py-16">
+            <article className="text-left w-full max-w-full sm:max-w-3xl space-y-4 sm:space-y-6 lg:space-y-8">
               <header>
-                <h1 id="hero-heading" className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                  De <span className="text-blue-600">ideas</span> a resultados reales para Pymes en México
+                <h1 id="hero-heading" className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words" lang="es">
+                  De <span
+                    className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent"
+                  >
+                    ideas
+                  </span> a resultados reales para Pymes en México
                 </h1>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 leading-5 sm:leading-relaxed max-w-full opacity-90">
                   Aplicamos el rigor de grandes consultoras a la realidad de Pymes: estrategia, ejecución y control. 
                   Confianza, criterio y eficiencia para convertir planes en impacto medible.
                 </p>
               </header>
           
-              <div className="flex flex-col sm:flex-row gap-4" role="group" aria-label="Acciones principales">
+              <div className="flex flex-col gap-3 w-full" role="group" aria-label="Acciones principales">
                 <Link 
                   href="/contacto" 
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light text-white px-6 py-4 rounded-lg font-semibold hover:from-brand-dark-hover hover:via-brand-medium-hover hover:to-brand-medium text-center text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-medium focus:ring-offset-2 shadow-lg hover:shadow-xl min-h-[52px] w-full block"
                   aria-describedby="cta-description"
+                  onClick={() => trackContactEvent('click_schedule', 'hero_button')}
                 >
                   Agenda una reunión
                 </Link>
                 <Link 
                   href="/servicios" 
-                  className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 text-center transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                  className="relative bg-gradient-to-tl from-white via-brand-pale to-brand-light text-gray-700 px-6 py-4 rounded-lg font-semibold hover:from-brand-pale hover:via-brand-light hover:to-brand-medium text-center text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-medium focus:ring-offset-2 shadow-lg hover:shadow-xl border-2 border-brand-light hover:border-brand-medium min-h-[52px] w-full block"
+                  onClick={() => trackNavigation('/servicios', 'hero')}
                 >
                   Ver servicios
                 </Link>
               </div>
               <p id="cta-description" className="sr-only">Contacta con nosotros para una consulta gratuita sobre tu proyecto empresarial</p>
               
-              <nav className="grid grid-cols-2 gap-4" aria-label="Servicios principales">
-                <Link 
-                  href="/servicios/deal-advisory" 
-                  className="p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-                  aria-describedby="deal-advisory-desc"
-                >
-                  <div className="text-sm font-semibold text-blue-600">Inversiones</div>
-                  <div className="text-gray-600">Deal Advisory</div>
-                </Link>
-                <div id="deal-advisory-desc" className="sr-only">Servicios de asesoría en transacciones e inversiones</div>
-                
-                <Link 
-                  href="/servicios/mercados" 
-                  className="p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors"
-                  aria-describedby="mercados-desc"
-                >
-                  <div className="text-sm font-semibold text-purple-600">Expansión</div>
-                  <div className="text-gray-600">Nuevos Mercados</div>
-                </Link>
-                <div id="mercados-desc" className="sr-only">Servicios de expansión y entrada a nuevos mercados</div>
-                
-                <Link 
-                  href="/servicios/operaciones-ti" 
-                  className="p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
-                  aria-describedby="operaciones-desc"
-                >
-                  <div className="text-sm font-semibold text-green-600">Operaciones</div>
-                  <div className="text-gray-600">Mejoras y TI</div>
-                </Link>
-                <div id="operaciones-desc" className="sr-only">Servicios de optimización operacional y tecnológica</div>
-                
-                <Link 
-                  href="/industrias" 
-                  className="p-4 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-colors"
-                  aria-describedby="industrias-desc"
-                >
-                  <div className="text-sm font-semibold text-orange-600">Sectores</div>
-                  <div className="text-gray-600">Industrias</div>
-                </Link>
-                <div id="industrias-desc" className="sr-only">Experiencia especializada por sectores industriales</div>
-              </nav>
-            </article>
-        
-            {/* Panel lateral */}
-            <aside className="relative" aria-labelledby="value-proposition">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl transform rotate-3" aria-hidden="true"></div>
-              <div className="relative bg-white rounded-2xl border border-gray-200 p-8 shadow-xl">
-                <div className="text-center space-y-6">
-                  <div className="w-48 h-32 mx-auto bg-gray-100 rounded-lg flex items-center justify-center" role="img" aria-label="Ilustración conceptual de despegue y aterrizaje de ideas">
-                    <span className="text-gray-500">Imagen ilustrativa</span>
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase text-gray-500 font-semibold">De ideas a resultados</div>
-                    <h2 id="value-proposition" className="text-xl font-bold text-gray-900 mt-2">
-                      Ayudamos a despegar ideas brillantes… y también a aterrizarlas
-                    </h2>
-                    <p className="text-gray-600 mt-4">
-                      No nos quedamos en la presentación: análisis a costo razonable e implicación 
-                      en la ejecución para que cada proyecto despegue y aterrice con éxito.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 justify-center" role="list" aria-label="Características principales">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full" role="listitem">Estrategia acotada</span>
-                    <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full" role="listitem">Ejecución medible</span>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full" role="listitem">Talento senior</span>
-                  </div>
-                </div>
-                
-                <div className="mt-8 space-y-4" role="list" aria-label="Servicios destacados">
-                  <div className="border border-gray-100 p-4 rounded-lg bg-gradient-to-br from-blue-50 to-white" role="listitem">
-                    <h3 className="text-xs uppercase text-blue-600 font-semibold">Deal Advisory</h3>
-                    <div className="font-bold text-gray-900">Del teaser al closing</div>
-                    <p className="text-gray-600 text-sm mt-2">Valuación, DD y documentación para proteger valor y tiempo.</p>
-                  </div>
-                  <div className="border border-gray-100 p-4 rounded-lg bg-gradient-to-br from-purple-50 to-white" role="listitem">
-                    <h3 className="text-xs uppercase text-purple-600 font-semibold">Nuevos Mercados</h3>
-                    <div className="font-bold text-gray-900">Entrada a México</div>
-                    <p className="text-gray-600 text-sm mt-2">Regulación, plan de negocio y creación de filiales end-to-end.</p>
-                  </div>
-                  <div className="border border-gray-100 p-4 rounded-lg bg-gradient-to-br from-green-50 to-white" role="listitem">
-                    <h3 className="text-xs uppercase text-green-600 font-semibold">Operaciones & TI</h3>
-                    <div className="font-bold text-gray-900">Impacto operativo</div>
-                    <p className="text-gray-600 text-sm mt-2">Compliance, PMO e implantaciones con foco en resultados.</p>
-                  </div>
-                </div>
+              {/* Expandable Services Cards */}
+              <div className="w-full" aria-label="Servicios principales">
+                <ExpandableCards />
               </div>
-            </aside>
+              
+              {/* Logos integrados debajo de los servicios */}
+              <ScrollingLogos />
+            </article>
           </div>
         </section>
       </main>

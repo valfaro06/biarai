@@ -10,10 +10,11 @@ export const siteConfig = {
   nav: [
     { label: "Servicios", href: "/servicios" },
     { label: "Industrias", href: "/industrias" },
-    { label: "Casos", href: "/casos" },
+    { label: "Proyectos", href: "/proyectos" },
     { label: "Insights", href: "/insights" },
     { label: "Liderazgo", href: "/liderazgo" },
     { label: "Nosotros", href: "/nosotros" },
+    { label: "Carreras", href: "/carreras" },
     { label: "Contacto", href: "/contacto" },
   ],
 } as const;

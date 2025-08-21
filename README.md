@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Biarai Web
 
-## Getting Started
+Sitio web corporativo de Biarai, desarrollado con Next.js 15 y TypeScript.
 
-First, run the development server:
+## 🚀 Tecnologías
+
+- **Framework**: Next.js 15 (App Router)
+- **Lenguaje**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animaciones**: Framer Motion
+- **3D Graphics**: Three.js + React Three Fiber
+- **Testing**: Jest + Testing Library
+
+## 🛠️ Instalación y Desarrollo
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar en modo desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construir para producción
+npm run build
+
+# Ejecutar tests
+npm test
+
+# Ejecutar linting
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app/` - Páginas y rutas de la aplicación
+- `src/components/` - Componentes reutilizables
+- `src/lib/` - Utilidades y configuraciones
+- `public/` - Archivos estáticos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Deployment
 
-## Learn More
+### Vercel (Recomendado)
+1. Conecta tu repositorio de GitHub a Vercel
+2. Vercel detectará automáticamente que es un proyecto Next.js
+3. El deployment se realizará automáticamente en cada push a la rama principal
 
-To learn more about Next.js, take a look at the following resources:
+### Variables de Entorno
+- No se requieren variables de entorno para el deployment básico
+- Para funcionalidades adicionales, configurar en el dashboard de Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Scripts Disponibles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Construcción para producción
+- `npm run start` - Servidor de producción
+- `npm run lint` - Verificación de código
+- `npm test` - Ejecución de tests
+- `npm run test:watch` - Tests en modo watch
+- `npm run test:coverage` - Tests con cobertura
 
-## Deploy on Vercel
+## 🔒 Seguridad
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- No se incluyen archivos `.env` en el repositorio
+- Las claves API deben configurarse en Vercel
+- El `.gitignore` está configurado para excluir archivos sensibles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📞 Contacto
+
+Para más información sobre el proyecto, contacta al equipo de desarrollo de Biarai.

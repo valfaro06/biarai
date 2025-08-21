@@ -30,21 +30,28 @@ export default async function InsightPage({ params }: Params) {
   if (!post) return notFound();
   return (
     <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="mb-6 text-xs uppercase tracking-wider text-slate-500">{post.tag} · {new Date(post.date).toLocaleDateString("es-MX")}</div>
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">{post.title}</h1>
-      <div className="prose prose-slate max-w-none text-slate-600">
+      <div className="mb-6 text-xs uppercase tracking-wider text-gray-500">{post.tag} · {new Date(post.date).toLocaleDateString("es-MX")}</div>
+      <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">{post.title}</h1>
+      <div className="prose prose-gray max-w-none text-gray-600">
         <p>{post.content}</p>
       </div>
-      <div className="mt-12 rounded-xl border border-slate-200 p-6 bg-slate-50">
-        <h3 className="text-lg font-bold mb-2 text-slate-900">¿Te ayudamos a aplicarlo en tu empresa?</h3>
-        <p className="text-slate-600 text-sm mb-4">Cuéntanos tu caso y te respondemos en 48h.</p>
-        <Link href="/contacto" className="inline-flex items-center rounded-lg bg-blue-600 text-white px-4 py-2.5 text-sm font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all shadow-lg">Hablemos</Link>
+      <div className="mt-12 rounded-xl border border-gray-200 p-6 bg-gradient-to-tl from-white via-brand-pale to-brand-light">
+        <h3 className="text-lg font-bold mb-2 text-gray-900">¿Te ayudamos a aplicarlo en tu empresa?</h3>
+        <p className="text-gray-600 text-sm mb-4">Cuéntanos tu caso y te respondemos en 48h.</p>
+        <Link href="/contacto" className="inline-flex items-center rounded-lg bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light text-white px-4 py-2.5 text-sm font-semibold hover:from-brand-dark-hover hover:via-brand-medium-hover hover:to-brand-medium transform hover:scale-105 transition-all shadow-lg">Hablemos</Link>
       </div>
       <div className="mt-8">
-        <Link href="/insights" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">← Volver a Insights</Link>
+        <Link href="/insights" className="text-sm text-gray-500 hover:text-brand-medium transition-colors">← Volver a Insights</Link>
       </div>
     </article>
   );
 }
+
+
+
+
+
+
+
 
 
