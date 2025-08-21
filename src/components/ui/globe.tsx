@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3, Raycaster, Vector2 } from "three";
+import { Color, Scene, Fog, PerspectiveCamera, Vector3, Raycaster, Vector2, Group } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -65,7 +65,7 @@ const numbersOfRings = [0];
 
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef();
+  const groupRef = useRef<Group>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
@@ -89,7 +89,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (!globeRef.current && groupRef.current) {
       globeRef.current = new ThreeGlobe();
-      (groupRef.current as THREE.Group).add(globeRef.current);
+      (groupRef.current as Group).add(globeRef.current);
       setIsInitialized(true);
     }
   }, []);
