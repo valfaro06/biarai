@@ -70,6 +70,6 @@ export const trackServiceView = (service: string) => {
 
 declare global {
   interface Window {
-    gtag: (command: string, targetId: string, config?: any) => void;
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
   }
 }

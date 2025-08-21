@@ -8,10 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 
 export const useOutsideClick = (
   ref: RefObject<HTMLDivElement>,
-  callback: Function
+  callback: (event: MouseEvent | TouchEvent) => void
 ) => {
   useEffect(() => {
-    const listener = (event: any) => {
+    const listener = (event: MouseEvent | TouchEvent) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }
