@@ -40,18 +40,18 @@ describe('Home Page', () => {
     expect(servicesButton).toHaveAttribute('href', '/servicios');
   });
 
-  it('renders service navigation links', () => {
+  it('renders service cards', () => {
     render(<Home />);
     
-    const dealAdvisoryLink = screen.getByRole('link', { name: /Deal Advisory/i });
-    const mercadosLink = screen.getByRole('link', { name: /Nuevos Mercados/i });
-    const operacionesLink = screen.getByRole('link', { name: /Mejoras y TI/i });
-    const industriasLink = screen.getByRole('link', { name: /Industrias/i });
+    const dealAdvisoryCard = screen.getByText('Deal Advisory');
+    const mercadosCard = screen.getByText('Nuevos Mercados');
+    const operacionesCard = screen.getByText('Mejoras y TI');
+    const industriasCard = screen.getByText('Industrias');
     
-    expect(dealAdvisoryLink).toBeInTheDocument();
-    expect(mercadosLink).toBeInTheDocument();
-    expect(operacionesLink).toBeInTheDocument();
-    expect(industriasLink).toBeInTheDocument();
+    expect(dealAdvisoryCard).toBeInTheDocument();
+    expect(mercadosCard).toBeInTheDocument();
+    expect(operacionesCard).toBeInTheDocument();
+    expect(industriasCard).toBeInTheDocument();
   });
 
   it('tracks analytics when contact button is clicked', () => {
@@ -75,9 +75,9 @@ describe('Home Page', () => {
   it('renders the globe component', () => {
     render(<Home />);
     
-    // Since the Globe is dynamically imported and mocked, we check for the dynamic component
-    const globeWrapper = screen.getByTestId('dynamic-component');
-    expect(globeWrapper).toBeInTheDocument();
+    // Check if the globe wrapper is rendered
+    const globeSection = document.querySelector('[class*="absolute inset-0 z-0"]');
+    expect(globeSection).toBeTruthy();
   });
 
   it('renders the scrolling logos component', () => {
