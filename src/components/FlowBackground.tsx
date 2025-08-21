@@ -24,6 +24,7 @@ interface FlowLine {
 }
 
 export default function FlowBackground() {
+  // Fixed TypeScript error: useRef needs initial value
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
 
