@@ -16,7 +16,7 @@ export default function Home() {
       <StructuredData type="website" />
       <main>
         <section className="relative min-h-screen flex items-center justify-center" aria-labelledby="hero-heading">
-          {/* Globe Background */}
+          {/* Globe Background - ONLY ON HOME PAGE */}
           <div className="absolute inset-0 z-0">
             <GlobeWrapper />
           </div>
