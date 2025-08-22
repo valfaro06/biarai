@@ -88,7 +88,7 @@ export default function InsightsIndex() {
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
       <div className="text-center mb-8 sm:mb-12">
         <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
-          <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Insights</span>
+          <span className="bg-gradient-to-r from-[#68AEC8] to-[#255465] bg-clip-text text-transparent drop-shadow-lg">Insights</span>
         </h1>
         <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-5 sm:leading-relaxed max-w-3xl mx-auto opacity-90">
           Noticias, destacados y proyectos para atraer y educar leads. Contenido accionable y práctico.
@@ -119,31 +119,31 @@ export default function InsightsIndex() {
           <Link 
             key={post.slug} 
             href={`/insights/${post.slug}`} 
-            className="relative bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 min-h-[450px] sm:min-h-[500px] md:min-h-[550px] group block"
+            className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group block flex flex-col"
           >
-            {/* Background Image */}
-            <div className="absolute inset-0 w-full h-full">
+            {/* Top Image */}
+            <div className="relative w-full h-48 lg:h-56 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={post.backgroundSrc}
                 alt={`${post.title} background`}
-                className="w-full h-full object-cover object-center opacity-15 group-hover:opacity-25 transition-opacity duration-300"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             </div>
             
             {/* Content */}
-            <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-end">
-              <div className="text-center space-y-3 sm:space-y-4">
+            <div className="relative z-10 p-6 lg:p-8 xl:p-10 flex-1 flex flex-col justify-center">
+              <div className="text-center space-y-4 lg:space-y-5">
                 <div>
-                  <div className="text-xs sm:text-sm text-brand-dark font-semibold mb-2">
+                  <div className="text-sm text-brand-dark font-semibold mb-3">
                     {post.tag} · {new Date(post.date).toLocaleDateString("es-MX")}
                   </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight">
+                  <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
                     {post.title}
                   </h2>
-                  <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-4 rounded-full"></div>
-                  <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-sm mx-auto">
+                  <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
+                  <p className="text-gray-700 text-base lg:text-lg leading-relaxed font-medium max-w-md mx-auto">
                     {post.excerpt}
                   </p>
                   <div className="mt-4 text-xs text-brand-medium font-semibold">
@@ -165,7 +165,7 @@ export default function InsightsIndex() {
 
       {/* Newsletter Subscription */}
       <div className="rounded-xl border border-gray-200 p-4 sm:p-6 bg-white/80">
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-gray-900">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3">
           <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Suscríbete</span>
         </h3>
         <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">Recibe nuestros insights y proyectos. 1-2 correos/mes. Sin spam.</p>

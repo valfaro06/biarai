@@ -43,7 +43,7 @@ export default function CarrerasPage() {
   return (
     <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
       <div className="text-center mb-12 sm:mb-16">
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#255465] leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
           Únete a <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Biarai</span>
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
@@ -52,69 +52,93 @@ export default function CarrerasPage() {
       </div>
 
       <div className="grid gap-8 lg:gap-12 grid-cols-1 lg:grid-cols-2 mb-12 sm:mb-16">
-        {/* What We Look For */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 hover:shadow-lg transition-all duration-300">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
-            ¿Qué <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">buscamos?</span>
-          </h2>
-          <ul className="space-y-3 text-gray-600">
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Profesionales con experiencia en consultoría, M&A, o expansión empresarial</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Conocimiento del mercado mexicano y marcos regulatorios</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Mentalidad emprendedora y orientación a resultados</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Excelentes habilidades de comunicación y trabajo en equipo</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Pasión por ayudar a Pymes a alcanzar su máximo potencial</span>
-            </li>
-          </ul>
+        {/* What We Look For - Young Executive */}
+        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group flex flex-col">
+          {/* Top Image */}
+          <div className="relative w-full h-48 lg:h-56 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=600&fit=crop&crop=center"
+              alt="Joven ejecutivo profesional"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 p-6 lg:p-8 xl:p-10 flex-1 flex flex-col justify-center">
+            <div className="text-center space-y-4 lg:space-y-5">
+              <div>
+                <div className="text-sm text-brand-dark font-semibold mb-3">Perfil Profesional</div>
+                <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
+                  ¿Qué <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">buscamos?</span>
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
+                <ul className="space-y-2 text-gray-700 text-sm lg:text-base leading-relaxed font-medium max-w-md mx-auto text-left">
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Experiencia en consultoría, M&A, o expansión empresarial</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Conocimiento del mercado mexicano</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Mentalidad emprendedora y orientación a resultados</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* What We Offer */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 hover:shadow-lg transition-all duration-300">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
-            ¿Qué <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">ofrecemos?</span>
-          </h2>
-          <ul className="space-y-3 text-gray-600">
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Trabajo directo con senior partners en proyectos de alto impacto</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Oportunidades de crecimiento acelerado y desarrollo profesional</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Ambiente colaborativo con flexibilidad y autonomía</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Exposición a sectores diversos y marcos regulatorios complejos</span>
-            </li>
-            <li className="flex items-start">
-              <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>Compensación competitiva y participación en éxitos</span>
-            </li>
-          </ul>
+        {/* What We Offer - Senior Professional */}
+        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group flex flex-col">
+          {/* Top Image */}
+          <div className="relative w-full h-48 lg:h-56 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1594736797933-d0d9ac2b6709?w=800&h=600&fit=crop&crop=center"
+              alt="Ejecutivo senior profesional"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 p-6 lg:p-8 xl:p-10 flex-1 flex flex-col justify-center">
+            <div className="text-center space-y-4 lg:space-y-5">
+              <div>
+                <div className="text-sm text-brand-dark font-semibold mb-3">Beneficios</div>
+                <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
+                  ¿Qué <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">ofrecemos?</span>
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
+                <ul className="space-y-2 text-gray-700 text-sm lg:text-base leading-relaxed font-medium max-w-md mx-auto text-left">
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Trabajo directo con senior partners</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Crecimiento acelerado y desarrollo profesional</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-brand-medium rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Compensación competitiva y participación en éxitos</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Application Form */}
       <div className="bg-gradient-to-tl from-white via-brand-pale to-brand-light rounded-2xl p-8 sm:p-12">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#255465] mb-4">
             Envía tu <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">candidatura</span>
           </h2>
           <p className="text-gray-600">
@@ -129,7 +153,7 @@ export default function CarrerasPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">¡Candidatura recibida!</h3>
+            <h3 className="text-xl font-bold text-[#255465] mb-2">¡Candidatura recibida!</h3>
             <p className="text-gray-600 mb-6">
               Gracias por tu interés en Biarai. Revisaremos tu perfil y nos pondremos en contacto contigo pronto.
             </p>

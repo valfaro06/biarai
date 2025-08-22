@@ -121,48 +121,48 @@ export default function CasosPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
-      <div className="text-center mb-8 sm:mb-12">
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
-          <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Proyectos</span>
+      <div className="text-center mb-12 lg:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 w-full">
+          <span className="bg-gradient-to-r from-[#68AEC8] to-[#255465] bg-clip-text text-transparent drop-shadow-lg">Proyectos</span>
         </h1>
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-5 sm:leading-relaxed max-w-3xl mx-auto opacity-90">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto opacity-90">
           Resultados reales y medibles en proyectos de transformación empresarial
         </p>
       </div>
-      <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 lg:gap-10 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => {
           const isFlipped = flippedCards.has(project.name);
           return (
             <div 
               key={project.name} 
-              className="relative min-h-[450px] sm:min-h-[500px] md:min-h-[550px] cursor-pointer perspective-1000"
+              className="relative h-[500px] lg:h-[550px] cursor-pointer perspective-1000"
               onClick={() => toggleCard(project.name)}
             >
               <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                 {/* Front Side */}
                 <div className="absolute inset-0 w-full h-full backface-hidden">
-                  <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-full group">
-                    {/* Background Image */}
-                    <div className="absolute inset-0 w-full h-full">
+                  <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-full group flex flex-col">
+                    {/* Top Image */}
+                    <div className="relative w-full h-48 lg:h-56 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={project.backgroundSrc}
                         alt={`${project.name} project background`}
-                        className="w-full h-full object-cover object-center opacity-15 group-hover:opacity-25 transition-opacity duration-300"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     </div>
                     
                     {/* Content */}
-                    <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-end">
-                      <div className="text-center space-y-3 sm:space-y-4">
+                    <div className="relative z-10 p-6 lg:p-8 xl:p-10 flex-1 flex flex-col justify-center">
+                      <div className="text-center space-y-4 lg:space-y-5">
                         <div>
-                          <div className="text-xs sm:text-sm text-brand-dark font-semibold mb-2">{project.category}</div>
-                          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                          <div className="text-sm text-brand-dark font-semibold mb-3">{project.category}</div>
+                          <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
                             {project.name}
                           </h3>
-                          <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-4 rounded-full"></div>
-                          <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-sm mx-auto">
+                          <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
+                          <p className="text-gray-700 text-base lg:text-lg leading-relaxed font-medium max-w-md mx-auto">
                             {project.description}
                           </p>
                           <div className="mt-4 text-xs text-brand-medium font-semibold">
@@ -177,15 +177,15 @@ export default function CasosPage() {
                 {/* Back Side */}
                 <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
                   <div className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light rounded-2xl border border-gray-200 overflow-hidden h-full text-white">
-                    <div className="p-4 sm:p-6 md:p-8 h-full flex flex-col">
+                    <div className="p-6 lg:p-8 h-full flex flex-col">
                       <div className="text-center mb-4">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
+                        <h3 className="text-lg lg:text-xl xl:text-2xl font-bold mb-2">
                           {project.name}
                         </h3>
                         <div className="w-12 h-1 bg-white mx-auto rounded-full"></div>
                       </div>
                       
-                      <div className="flex-1 space-y-3 text-xs sm:text-sm overflow-y-auto">
+                      <div className="flex-1 space-y-3 text-sm lg:text-base overflow-y-auto">
                         <div>
                           <h4 className="font-bold mb-1">Reto:</h4>
                           <ul className="space-y-0.5">

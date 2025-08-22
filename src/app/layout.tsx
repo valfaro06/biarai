@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "google-site-verification-code-here",
+    other: {
+      "msvalidate.01": "bing-site-verification-code-here",
+    },
   },
   alternates: {
     canonical: 'https://www.biarai.com',
@@ -79,20 +82,24 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <meta name="theme-color" content="#1e40af" />
-        <meta name="msapplication-TileColor" content="#1e40af" />
+        <meta name="theme-color" content="#255465" />
+        <meta name="msapplication-TileColor" content="#255465" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Biarai" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="Biarai" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="referrer" content="origin-when-cross-origin" />
+        <meta name="color-scheme" content="light" />
+        <meta name="geo.region" content="MX" />
+        <meta name="geo.placename" content="Ciudad de México" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className="antialiased min-h-screen flex flex-col bg-gradient-to-tl from-white via-brand-pale to-brand-light">
+      <body className="antialiased min-h-screen flex flex-col bg-white">
         <GoogleAnalytics />
         <Header />
         <main className="flex-1">{children}</main>

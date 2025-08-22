@@ -28,61 +28,61 @@ export default function ContactoPage() {
   }
 
   return (
-    <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
-      <div className="text-center mb-8 sm:mb-12">
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
-          <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Hablemos</span>
+    <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
+      <div className="text-center mb-12 lg:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 w-full">
+          <span className="bg-gradient-to-r from-[#68AEC8] to-[#255465] bg-clip-text text-transparent drop-shadow-lg">Hablemos</span>
         </h1>
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-5 sm:leading-relaxed max-w-full opacity-90">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto opacity-90">
           Cuéntanos tu reto y te proponemos un enfoque concreto en menos de 48h.
         </p>
       </div>
       
-      <div className="bg-white rounded-2xl border border-gray-200 p-4 sm:p-6 lg:p-8 shadow-lg w-full">
-        <form onSubmit={submit} className="space-y-6">
+      <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 lg:p-10 shadow-lg w-full">
+        <form onSubmit={submit} className="space-y-6 lg:space-y-8">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Nombre *</label>
             <input 
               required 
               name="name" 
               placeholder="Tu nombre completo" 
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none" 
+              className="w-full border border-gray-300 rounded-lg px-4 py-4 lg:py-5 text-base lg:text-lg focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none" 
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Email *</label>
             <input 
               required 
               name="email" 
               type="email" 
               placeholder="tu@empresa.com" 
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none" 
+              className="w-full border border-gray-300 rounded-lg px-4 py-4 lg:py-5 text-base lg:text-lg focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none" 
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Empresa</label>
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Empresa</label>
             <input 
               name="company" 
               placeholder="Nombre de tu empresa" 
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none" 
+              className="w-full border border-gray-300 rounded-lg px-4 py-4 lg:py-5 text-base lg:text-lg focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none" 
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+            <label className="block text-base lg:text-lg font-medium text-gray-700 mb-3">Mensaje</label>
             <textarea 
               name="message" 
               placeholder="¿En qué podemos ayudarte? Comparte detalles sobre tu proyecto o reto..." 
-              rows={5} 
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none" 
+              rows={6} 
+              className="w-full border border-gray-300 rounded-lg px-4 py-4 lg:py-5 text-base lg:text-lg focus:ring-2 focus:ring-brand-medium focus:border-brand-medium outline-none resize-none" 
             />
           </div>
           
           <button 
             disabled={status === "sending"} 
-            className="w-full bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light text-white px-6 py-4 rounded-lg font-semibold hover:from-brand-dark-hover hover:via-brand-medium-hover hover:to-brand-light disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 min-h-[52px] text-base"
+            className="w-full bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light text-white px-8 py-5 lg:py-6 rounded-lg font-semibold hover:from-brand-dark-hover hover:via-brand-medium-hover hover:to-brand-light disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 min-h-[60px] text-lg lg:text-xl"
           >
             {status === "sending" ? "Enviando…" : "Enviar mensaje"}
           </button>

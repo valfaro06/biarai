@@ -23,7 +23,7 @@ const projects: ProjectCardProps[] = [
           ventas, patrones estacionales y variables externas.
         </p>
         <div className="space-y-3">
-          <h4 className="font-semibold text-gray-900">Resultados obtenidos:</h4>
+          <h4 className="font-semibold text-[#255465]">Resultados obtenidos:</h4>
           <ul className="space-y-2 text-gray-600">
             <li className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
@@ -58,7 +58,7 @@ const projects: ProjectCardProps[] = [
           para optimizar la gestión de clientes.
         </p>
         <div className="space-y-3">
-          <h4 className="font-semibold text-gray-900">Impacto logrado:</h4>
+          <h4 className="font-semibold text-[#255465]">Impacto logrado:</h4>
           <ul className="space-y-2 text-gray-600">
             <li className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
@@ -93,7 +93,7 @@ const projects: ProjectCardProps[] = [
           automatizados y dashboard en tiempo real.
         </p>
         <div className="space-y-3">
-          <h4 className="font-semibold text-gray-900">Beneficios alcanzados:</h4>
+          <h4 className="font-semibold text-[#255465]">Beneficios alcanzados:</h4>
           <ul className="space-y-2 text-gray-600">
             <li className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
@@ -203,7 +203,7 @@ export function ProjectsExpandableCards() {
                     <div>
                       <motion.h3
                         layoutId={`title-${active.title}-${id}`}
-                        className="font-bold text-gray-900 text-base"
+                        className="font-bold text-[#255465] text-base"
                       >
                         {active.title}
                       </motion.h3>
@@ -239,7 +239,7 @@ export function ProjectsExpandableCards() {
         ) : null}
       </AnimatePresence>
       <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start gap-4">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <motion.div
             layoutId={`card-${project.title}-${id}`}
             key={`card-${project.title}-${id}`}
@@ -251,7 +251,7 @@ export function ProjectsExpandableCards() {
                 <div className="flex flex-col">
                   <motion.h3
                     layoutId={`title-${project.title}-${id}`}
-                    className="font-medium text-gray-900 text-base md:text-lg"
+                    className="font-medium text-[#255465] text-base md:text-lg"
                   >
                     {project.title}
                   </motion.h3>

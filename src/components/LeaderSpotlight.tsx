@@ -22,7 +22,7 @@ export default function LeaderSpotlight({ name, role, bio, videoUrl, youtubeId, 
       <div className="grid gap-6 md:grid-cols-2 items-start">
         <div>
           <div className="text-sm text-gray-500 font-medium">Liderazgo</div>
-          <div className="text-lg font-bold text-gray-900">{name}</div>
+          <div className="text-lg font-bold text-[#255465]">{name}</div>
           <div className="text-gray-600 text-sm mb-3">{role}</div>
           <p className="text-gray-600 text-sm leading-relaxed">{bio}</p>
           {embedSrc && (
@@ -66,6 +66,7 @@ export default function LeaderSpotlight({ name, role, bio, videoUrl, youtubeId, 
     </div>
   );
 }
+
 
 
 

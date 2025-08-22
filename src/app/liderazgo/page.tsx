@@ -22,17 +22,17 @@ export default function LiderazgoPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
-      <div className="text-center mb-8 sm:mb-12">
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
-          <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Liderazgo</span>
+      <div className="text-center mb-12 lg:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 w-full">
+          <span className="bg-gradient-to-r from-[#68AEC8] to-[#255465] bg-clip-text text-transparent drop-shadow-lg">Liderazgo</span>
         </h1>
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-5 sm:leading-relaxed max-w-3xl mx-auto opacity-90">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto opacity-90">
           Experiencia senior con trayectoria probada en transformación empresarial
         </p>
       </div>
-      <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 lg:gap-10 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         {leaders.map((l) => (
-          <div key={l.name} className="relative bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 min-h-[450px] sm:min-h-[500px] md:min-h-[550px] group">
+          <div key={l.name} className="relative bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group">
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -45,10 +45,10 @@ export default function LiderazgoPage() {
             </div>
             
             {/* Content */}
-            <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-end">
-              <div className="text-center space-y-3 sm:space-y-4">
+            <div className="relative z-10 p-6 lg:p-8 xl:p-10 h-full flex flex-col justify-center">
+              <div className="text-center space-y-4 lg:space-y-5">
                 {/* Profile Image - Larger */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-tl from-brand-pale to-brand-light border-4 border-white shadow-xl">
+                <div className="relative w-32 h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 mx-auto mb-5 rounded-full overflow-hidden bg-gradient-to-tl from-brand-pale to-brand-light border-4 border-white shadow-xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={l.thumbnailSrc}
@@ -58,12 +58,12 @@ export default function LiderazgoPage() {
                 </div>
                 
                 <div>
-                  <div className="text-xs sm:text-sm text-brand-dark font-semibold mb-2">{l.role}</div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  <div className="text-sm text-brand-dark font-semibold mb-3">{l.role}</div>
+                  <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
                     {l.name}
                   </h3>
-                  <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-4 rounded-full"></div>
-                  <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-sm mx-auto">
+                  <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
+                  <p className="text-gray-700 text-base lg:text-lg leading-relaxed font-medium max-w-md mx-auto">
                     {l.bio}
                   </p>
                 </div>

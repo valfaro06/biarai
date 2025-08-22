@@ -241,7 +241,7 @@ export function IndustryExpandableCards() {
                     <div>
                       <motion.h3
                         layoutId={`title-${active.title}-${id}`}
-                        className="font-bold text-gray-900 text-base"
+                        className="font-bold text-[#255465] text-base"
                       >
                         {active.title}
                       </motion.h3>
@@ -279,7 +279,7 @@ export function IndustryExpandableCards() {
       
       {/* Grid with flip cards */}
       <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start gap-4 sm:gap-6">
-        {industries.map((industry, index) => (
+        {industries.map((industry) => (
           <motion.div
             layoutId={`card-${industry.title}-${id}`}
             key={`card-${industry.title}-${id}`}
@@ -298,7 +298,7 @@ export function IndustryExpandableCards() {
                   <div className="text-4xl sm:text-5xl md:text-6xl mb-4">📷</div>
                   <motion.h3
                     layoutId={`title-${industry.title}-${id}`}
-                    className="font-medium text-gray-900 text-base md:text-lg px-2"
+                    className="font-medium text-[#255465] text-base md:text-lg px-2"
                   >
                     {industry.title}
                   </motion.h3>
@@ -321,7 +321,7 @@ export function IndustryExpandableCards() {
                 <div className="space-y-3 text-center">
                   <motion.h3
                     layoutId={`title-${industry.title}-${id}`}
-                    className="font-medium text-gray-900 text-base md:text-lg"
+                    className="font-medium text-[#255465] text-base md:text-lg"
                   >
                     {industry.title}
                   </motion.h3>

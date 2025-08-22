@@ -13,7 +13,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between w-full">
         <Link 
           href="/" 
-          className="font-bold text-lg sm:text-xl text-gray-900 hover:text-brand-medium focus:outline-none focus:ring-2 focus:ring-brand-medium focus:ring-offset-2 rounded transition-colors flex-shrink-0"
+          className="font-bold text-lg sm:text-xl text-[#255465] hover:text-brand-medium focus:outline-none focus:ring-2 focus:ring-brand-medium focus:ring-offset-2 rounded transition-colors flex-shrink-0"
           aria-label="Biarai - Inicio"
         >
           {siteConfig.name}

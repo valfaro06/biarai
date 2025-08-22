@@ -1,8 +1,6 @@
 'use client';
 
 import { World, GlobeConfig } from '@/components/ui/globe';
-import { useState } from 'react';
-import { trackGlobeInteraction } from '@/lib/analytics';
 
 export default function Globe() {
 
@@ -29,8 +27,6 @@ export default function Globe() {
     autoRotateSpeed: 0.3,
   };
 
-  // Morado espacial para los targets y conexiones
-  const spaceColors = ["#8B5CF6", "#A855F7", "#9333EA", "#7C3AED"]; // Morados espaciales
   
   // Un target principal por país
   const MADRID = { lat: 40.4168, lng: -3.7038 };     // España
@@ -83,19 +79,6 @@ export default function Globe() {
             />
           </div>
           
-          {/* Legend */}
-          <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-            <div className="text-white text-xs space-y-1">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-white"></div>
-                <span>Ciudades objetivo</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-1 bg-white rounded"></div>
-                <span>Conexiones estratégicas</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

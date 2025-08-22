@@ -8,23 +8,23 @@ export const metadata = {
 export default function DealAdvisoryPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 pb-20 sm:pb-24 lg:pb-32">
-      <div className="space-y-8 sm:space-y-12">
+      <div className="space-y-12 lg:space-y-16">
         <div className="text-center">
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words">
-            Inversiones · <span className="bg-gradient-to-tl from-brand-dark via-brand-medium to-brand-light bg-clip-text text-transparent">Deal Advisory</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6 sm:mb-8 w-full">
+            Inversiones · <span className="bg-gradient-to-r from-[#68AEC8] to-[#255465] bg-clip-text text-transparent drop-shadow-lg">Deal Advisory</span>
           </h1>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-5 sm:leading-relaxed max-w-3xl mx-auto opacity-90">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto opacity-90">
             Acompañamos todo el ciclo del deal: del planteamiento y screening hasta la ejecución y cierre, con due diligence integral y estructuración financiera.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-            <h2 className="text-xl font-bold mb-4 text-gray-900 flex items-center gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+          <div className="bg-white rounded-xl border border-gray-200 p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+            <h2 className="text-xl lg:text-2xl font-bold mb-6 text-gray-900 flex items-center gap-3">
               <span className="w-2 h-2 bg-brand-medium rounded-full"></span>
               Servicios
             </h2>
-            <ul className="space-y-3 text-gray-600">
+            <ul className="space-y-4 text-gray-600 lg:text-lg">
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-brand-medium rounded-full mt-2 flex-shrink-0"></span>
                 <span>Estrategia de inversiones, diseño de portafolio</span>
