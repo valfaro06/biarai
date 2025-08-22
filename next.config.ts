@@ -27,7 +27,40 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false,
   },
   experimental: {
-    optimizePackageImports: ['@headlessui/react', 'framer-motion'],
+    optimizePackageImports: ['@headlessui/react', 'framer-motion', '@react-three/fiber', '@react-three/drei'],
+    optimizeCss: true,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      };
+    }
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          three: {
+            name: 'three',
+            test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          framer: {
+            name: 'framer',
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    };
+    return config;
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   async headers() {
     return [

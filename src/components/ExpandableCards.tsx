@@ -181,7 +181,7 @@ export function ExpandableCards() {
             layoutId={`card-${service.title}-${id}`}
             key={`card-${service.title}-${id}`}
             onClick={() => setActive(service)}
-            className="p-6 lg:p-8 flex flex-col hover:bg-[#D9D9D9] rounded-xl cursor-pointer border border-brand-neutral bg-white/90 transition-colors min-h-[140px] lg:min-h-[160px] group"
+            className="p-6 lg:p-8 flex flex-col hover:bg-[#D9D9D9] rounded-xl cursor-pointer border border-brand-neutral bg-white/90 transition-colors min-h-[140px] lg:min-h-[160px] group will-change-transform"
           >
             <div className="flex gap-4 flex-col w-full">
               <div className="flex justify-between items-center w-full">

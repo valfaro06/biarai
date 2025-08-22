@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function CarrerasPage() {
   const [formData, setFormData] = useState({
@@ -56,11 +57,13 @@ export default function CarrerasPage() {
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group flex flex-col">
           {/* Top Image */}
           <div className="relative w-full h-48 lg:h-56 overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=600&fit=crop&crop=center"
               alt="Joven ejecutivo profesional"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+              fill
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={false}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
           </div>
@@ -97,11 +100,13 @@ export default function CarrerasPage() {
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group flex flex-col">
           {/* Top Image */}
           <div className="relative w-full h-48 lg:h-56 overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1594736797933-d0d9ac2b6709?w=800&h=600&fit=crop&crop=center"
               alt="Ejecutivo senior profesional"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+              fill
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={false}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
           </div>

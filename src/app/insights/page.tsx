@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 
 type Post = {
   slug: string;
@@ -71,6 +71,19 @@ const posts: Post[] = [
 
 export default function InsightsIndex() {
   const [searchTerm, setSearchTerm] = useState("");
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+    }
+  };
 
   const filteredPosts = useMemo(() => {
     if (!searchTerm.trim()) return posts;
@@ -113,47 +126,83 @@ export default function InsightsIndex() {
         </div>
       </div>
 
-      {/* Articles Grid */}
-      <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
-        {filteredPosts.map((post) => (
-          <Link 
-            key={post.slug} 
-            href={`/insights/${post.slug}`} 
-            className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group block flex flex-col"
+      {/* Articles Carousel */}
+      <div className="relative mb-8 sm:mb-12">
+        {/* Navigation Buttons */}
+        <div className="flex justify-center gap-4 mb-6">
+          <button
+            onClick={scrollLeft}
+            className="p-3 rounded-full bg-brand-light hover:bg-brand-medium text-brand-dark hover:text-white transition-colors duration-300 shadow-lg"
+            aria-label="Anterior"
           >
-            {/* Top Image */}
-            <div className="relative w-full h-48 lg:h-56 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={post.backgroundSrc}
-                alt={`${post.title} background`}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-            </div>
-            
-            {/* Content */}
-            <div className="relative z-10 p-6 lg:p-8 xl:p-10 flex-1 flex flex-col justify-center">
-              <div className="text-center space-y-4 lg:space-y-5">
-                <div>
-                  <div className="text-sm text-brand-dark font-semibold mb-3">
-                    {post.tag} · {new Date(post.date).toLocaleDateString("es-MX")}
-                  </div>
-                  <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
-                    {post.title}
-                  </h2>
-                  <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
-                  <p className="text-gray-700 text-base lg:text-lg leading-relaxed font-medium max-w-md mx-auto">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-4 text-xs text-brand-medium font-semibold">
-                    Leer artículo completo →
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={scrollRight}
+            className="p-3 rounded-full bg-brand-light hover:bg-brand-medium text-brand-dark hover:text-white transition-colors duration-300 shadow-lg"
+            aria-label="Siguiente"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Scrollable Container */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto scroll-smooth pb-4 px-2"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {filteredPosts.map((post) => (
+            <Link 
+              key={post.slug} 
+              href={`/insights/${post.slug}`} 
+              className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-[500px] lg:h-[550px] group block flex flex-col flex-shrink-0 w-[350px] md:w-[400px]"
+            >
+              {/* Top Image */}
+              <div className="relative w-full h-48 lg:h-56 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={post.backgroundSrc}
+                  alt={`${post.title} background`}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+              </div>
+              
+              {/* Content */}
+              <div className="relative z-10 p-6 lg:p-8 xl:p-10 flex-1 flex flex-col justify-center">
+                <div className="text-center space-y-4 lg:space-y-5">
+                  <div>
+                    <div className="text-sm text-brand-dark font-semibold mb-3">
+                      {post.tag} · {new Date(post.date).toLocaleDateString("es-MX")}
+                    </div>
+                    <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold text-[#255465] mb-4">
+                      {post.title}
+                    </h2>
+                    <div className="w-16 h-1 bg-gradient-to-tl from-brand-dark to-brand-medium mx-auto mb-5 rounded-full"></div>
+                    <p className="text-gray-700 text-base lg:text-lg leading-relaxed font-medium max-w-md mx-auto">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-4 text-xs text-brand-medium font-semibold">
+                      Leer artículo completo →
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
+
+        {/* Hide scrollbar */}
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
       </div>
 
       {/* No results message */}

@@ -19,15 +19,29 @@ export default function GlobeWrapper() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Immediate visibility for smoother loading
-    setIsVisible(true);
-    
-    // Simulate load completion after a short delay
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Load after becoming visible
+          const timer = setTimeout(() => {
+            setIsLoaded(true);
+          }, 300);
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-    return () => clearTimeout(timer);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
   }, []);
 
   return (
