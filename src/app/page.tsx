@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import GlobeWrapper from "@/components/GlobeWrapper";
 import ScrollingLogos from "@/components/ScrollingLogos";
 import StructuredData from "@/components/StructuredData";
 import { ExpandableCards } from "@/components/ExpandableCards";
@@ -15,8 +16,13 @@ export default function Home() {
       <StructuredData type="website" />
       <main>
         <section className="relative min-h-screen flex items-center justify-center" aria-labelledby="hero-heading">
+          {/* Globe Background */}
+          <div className="absolute inset-0 z-0">
+            <GlobeWrapper />
+          </div>
+          
           {/* Content */}
-          <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 lg:py-16">
+          <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 lg:py-16">
             <article className="text-left w-full max-w-full sm:max-w-3xl space-y-4 sm:space-y-6 lg:space-y-8">
               <header>
                 <h1 id="hero-heading" className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-tight mb-4 sm:mb-6 w-full break-words" lang="es">

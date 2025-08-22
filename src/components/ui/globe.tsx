@@ -152,13 +152,10 @@ export function Globe({ globeConfig, data }: WorldProps) {
     );
 
     globeRef.current
-      .hexPolygonsData(countries.features)
-      .hexPolygonResolution(2) // Reduced from 3 to 2 for better performance
-      .hexPolygonMargin(0.7)
+      .hexPolygonsData([]) // Remove large polygon markers
       .showAtmosphere(defaultProps.showAtmosphere)
       .atmosphereColor(defaultProps.atmosphereColor)
-      .atmosphereAltitude(defaultProps.atmosphereAltitude)
-      .hexPolygonColor(() => defaultProps.polygonColor);
+      .atmosphereAltitude(defaultProps.atmosphereAltitude);
 
     globeRef.current
       .arcsData(data)
