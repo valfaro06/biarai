@@ -1,0 +1,22 @@
+# Vercel ignore file
+# Ensure all source files are included in deployment
+
+# Don't ignore source files
+!src/**/*
+!public/**/*
+!package.json
+!next.config.ts
+!tailwind.config.js
+!tsconfig.json
+
+# Ignore development files
+.env.local
+.env.development
+.env.test
+.env.production
+node_modules/
+.next/
+.git/
+README.md
+*.log
+

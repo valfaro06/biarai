@@ -91,3 +91,4 @@ Para problemas técnicos:
 1. Revisar logs de Vercel
 2. Verificar configuración de GitHub Actions
 3. Consultar documentación de Next.js y Vercel
+
