@@ -179,12 +179,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .pointColor(() => "#ffffff") // Puntos blancos para todos los continentes
       .pointsMerge(true)
       .pointAltitude(0.0)
-      .pointRadius((d: { lat: number; lng: number }) => {
+      .pointRadius((d: unknown) => {
+        const point = d as { lat: number; lng: number };
         // Make target cities larger
         const isTargetCity = (
-          (Math.abs(d.lat - 40.4168) < 0.1 && Math.abs(d.lng + 3.7038) < 0.1) || // Madrid
-          (Math.abs(d.lat - 19.4326) < 0.1 && Math.abs(d.lng + 99.1332) < 0.1) || // Mexico City
-          (Math.abs(d.lat - 40.7128) < 0.1 && Math.abs(d.lng + 74.0060) < 0.1)    // New York
+          (Math.abs(point.lat - 40.4168) < 0.1 && Math.abs(point.lng + 3.7038) < 0.1) || // Madrid
+          (Math.abs(point.lat - 19.4326) < 0.1 && Math.abs(point.lng + 99.1332) < 0.1) || // Mexico City
+          (Math.abs(point.lat - 40.7128) < 0.1 && Math.abs(point.lng + 74.0060) < 0.1)    // New York
         );
         return isTargetCity ? 5 : 3;
       });
@@ -253,9 +254,7 @@ export function WebGLRendererConfig() {
       gl.setSize(size.width, size.height);
       gl.setClearColor(0xffaaff, 0);
       
-      // Performance optimizations
-      gl.antialias = false; // Disable antialiasing for better performance
-      gl.powerPreference = 'high-performance';
+      // Performance optimizations - WebGLRenderer doesn't have these properties
     }
   }, [gl, size]);
 
