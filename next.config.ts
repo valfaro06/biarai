@@ -28,7 +28,6 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['@headlessui/react', 'framer-motion', '@react-three/fiber', '@react-three/drei'],
-    optimizeCss: true,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

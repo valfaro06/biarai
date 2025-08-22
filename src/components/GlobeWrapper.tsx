@@ -24,22 +24,22 @@ export default function GlobeWrapper() {
         if (entry.isIntersecting) {
           setIsVisible(true);
           // Load after becoming visible
-          const timer = setTimeout(() => {
+          setTimeout(() => {
             setIsLoaded(true);
           }, 300);
-          return () => clearTimeout(timer);
         }
       },
       { threshold: 0.1 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const currentContainer = containerRef.current;
+    if (currentContainer) {
+      observer.observe(currentContainer);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentContainer) {
+        observer.unobserve(currentContainer);
       }
     };
   }, []);
