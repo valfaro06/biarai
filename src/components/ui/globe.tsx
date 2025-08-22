@@ -152,10 +152,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
     );
 
     globeRef.current
-      .hexPolygonsData([]) // Remove large polygon markers
+      .hexPolygonsData(countries.features)
+      .hexPolygonResolution(2) // Reduced resolution for better performance
+      .hexPolygonMargin(0.7)
       .showAtmosphere(defaultProps.showAtmosphere)
       .atmosphereColor(defaultProps.atmosphereColor)
-      .atmosphereAltitude(defaultProps.atmosphereAltitude);
+      .atmosphereAltitude(defaultProps.atmosphereAltitude)
+      .hexPolygonColor(() => defaultProps.polygonColor);
 
     globeRef.current
       .arcsData(data)
@@ -176,16 +179,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .pointColor(() => "#ffffff") // Puntos blancos para todos los continentes
       .pointsMerge(true)
       .pointAltitude(0.0)
-      .pointRadius((d: unknown) => {
-        const point = d as { lat: number; lng: number };
-        // Make target cities larger
-        const isTargetCity = (
-          (Math.abs(point.lat - 40.4168) < 0.1 && Math.abs(point.lng + 3.7038) < 0.1) || // Madrid
-          (Math.abs(point.lat - 19.4326) < 0.1 && Math.abs(point.lng + 99.1332) < 0.1) || // Mexico City
-          (Math.abs(point.lat - 40.7128) < 0.1 && Math.abs(point.lng + 74.0060) < 0.1)    // New York
-        );
-        return isTargetCity ? 5 : 3;
-      });
+      .pointRadius(2.5); // All points same small size
 
     globeRef.current
       .ringsData([])
